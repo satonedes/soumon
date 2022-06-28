@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー登録</title>
+</head>
+<body>
+<form method="post" th:action="@{/regist/complete}" th:object="${userRegistForm}">
+<label th:errors="*{name}" style="color: red">エラー！　名前を入力してください</label><br>
+    名前：<input type="text" name="name" th:field="*{name}"><br><br>
+<label th:errors="*{ruby}" style="color: red">エラー！　ふりがなを入力してください</label><br>    
+    ふりがな：<input type="text" name="ruby" th:field="*{ruby}"><br><br>
+    <label th:errors="*{zipCode}" style="color: red">エラー！　郵便番号を入力してください</label><br>
+    郵便番号：<input type="text" name="zipCode" placeholder="ハイフンあり" th:field="*{zipCode}"><br><br>
+    <label th:errors="*{address}" style="color: red">エラー！　住所を入力してください</label><br>
+    住所：<input type="text" name="address" th:field="*{address}"><br><br>
+    <label th:errors="*{telephone}" style="color: red">エラー！　電話番号を入力してください</label><br>
+    電話番号：<input type="text" name="telaphone" placeholder="ハイフンあり"45 th:field="*{telephone}"><br><br>
+    <label th:errors="*{password}" style="color: red">エラー！　パスワードを入力してください</label><br>
+    パスワード：<input type="password" name="password" th:field="*{password}"><br><br>
+    <label th:errors="*{password1}" style="color: red">エラー！　パスワードが違います</label><br>
+    確認パスワード：<input type="password" name="password1" th:field="*{password1}"><br><br>
+    <div style="margin-left:100px"><button type="submit">登録</button></div>
+</form>
+</body>
+</html>
