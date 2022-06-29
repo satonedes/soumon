@@ -84,11 +84,11 @@ public class UserConfirmRepository {
 	    	}
 	    	return urlList;
 	    }
-	    public void updateUser(String mailAddress) {
-	    	String updateSql = "update users set del_flg=1 where mail_address=:mailAddress;";
-	    	SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress);
-	    	template.update(updateSql, param);
-	    }
+//	    public void updateUser(String mailAddress) {
+//	    	String updateSql = "update users set del_flg=1 where mail_address=:mailAddress;";
+//	    	SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress);
+//	    	template.update(updateSql, param);
+//	    }
 	    public void updateUrl(String mailAddress) {
 	    	String updateSql = "update regist_url set del_flg=1 where mail_address=:mailAddress;";
 	    	SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress);

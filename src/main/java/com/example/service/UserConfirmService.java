@@ -41,9 +41,9 @@ public class UserConfirmService {
 	public void insertUsers(Users user) {
 		repository.insertUsers(user);
 	}
-	public void updateUser(String mailAddress) {
-		repository.updateUser(mailAddress);
-	}
+//	public void updateUser(String mailAddress) {
+//		repository.updateUser(mailAddress);
+//	}
 	public void updateUrl(String mailAddress) {
 		repository.updateUrl(mailAddress);
 	}

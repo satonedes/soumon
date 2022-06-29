@@ -106,11 +106,11 @@ public class UserConfirmController {
 		  // 受け取ったkeyが regist_urlテーブルに存在しているかをチェックする
 		  RegistUrl registUrl = registUrlService.findByKey(userRegistKeyform.getKey());
 		  session.setAttribute("key", userRegistKeyform.getKey());
-	//	  LocalDateTime nowDateTime = LocalDateTime.now();
+		  LocalDateTime nowDateTime = LocalDateTime.now();
 		  if (registUrl != null) {
-			  LocalDateTime deadline = registUrl.getRegistDate().plusDays(1);
+			  LocalDateTime deadline = registUrl.getRegistDate().plusHours(24);
 			 
-			  if (registUrl.getRegistDate().isBefore(deadline)) {			  // TODO: 24じかん以内かチェック
+			  if (nowDateTime.isBefore(deadline)) {			  // TODO: 24じかん以内かチェック
 				  // OKなら
 				  return "userRegist";
 			  } else {
@@ -141,7 +141,7 @@ public class UserConfirmController {
 		BeanUtils.copyProperties(form, user);
 		user.setMailAddress(registUrl.getMailAddress());
 		service.insertUsers(user);
-		service.updateUser(user.getMailAddress());
+//		service.updateUser(user.getMailAddress());
 		service.updateUrl(user.getMailAddress());
 		return "registConfirm";
 	}
